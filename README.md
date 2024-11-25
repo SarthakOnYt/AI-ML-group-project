@@ -17,7 +17,7 @@ Kirti-Registration no
 
 # Modules used:
 
-pygame,Pytorch,json,Pillow(PIL)
+pygame,Pytorch,json,Pillow(PIL),numpy,mediapipe,datetime,torchvision
 
 # How to use
 
