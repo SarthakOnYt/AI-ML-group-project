@@ -9,8 +9,8 @@ Sarthak- 24BAI10269
 Snighda-
 
 # PPT Makers:
-Swapna
-Kirti
+Swapna-<Registration no>,
+Kirti-<Registration no>
 
 # Modules used:
 cv2,Pytorch,json
