@@ -2,16 +2,16 @@
 
 Here the code for ourgrou project is uploaded
 
-#Lead Developer:
+# Lead Developer:
 Sarthak- 24BAI10269
 
-#Jr Developer:
+# Jr Developer:
 Snighda-
 
-#PPT Makers:
+# PPT Makers:
 Swapna
 Kirti
 
-#Modules used:
+# Modules used:
 cv2,Pytorch,json
 
