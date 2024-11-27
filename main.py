@@ -7,14 +7,15 @@ import torch
 from PIL import Image
 from datetime import datetime
 from torchvision import transforms
-
+import faces_updater
 
 # Initialize PyGame and Camera
 pygame.init()
 pygame.camera.init()
 
 # Select Camera
-camera = pygame.camera.Camera(pygame.camera.list_cameras()[0], (640, 480))
+cam_source=int(input("Choose your camera \n 0. Laptop camera \n 1. Android camera \n :-"))
+camera = pygame.camera.Camera(pygame.camera.list_cameras()[cam_source], (640, 480))
 camera.start()
 
 # Initialize Mediapipe Face Detection
@@ -39,7 +40,7 @@ def use_nn(image_input):
     #setup NN to compare faces
     transform = transforms.Compose([
         transforms.Grayscale(num_output_channels=1),
-        transforms.Resize((512, 512)),
+        transforms.Resize((200, 200)),
         transforms.ToTensor()
     ])
 
@@ -55,14 +56,15 @@ def use_nn(image_input):
     for entry in data:
         comparison_image = load_image(entry)
         similarity = torch.nn.functional.cosine_similarity(input_tensor.view(-1), comparison_image.view(-1), dim=0)
-        
+
         if similarity.item() > max_similarity:
             max_similarity = similarity.item()
             found_img_path = entry
 
-    if max_similarity >0.89:
+    if max_similarity >0.92:
         return(f'{max_similarity*100}%',found_img_path)
     else :
+        print(max_similarity)
         return ("match not found","unauthorized")
 
 
@@ -103,6 +105,7 @@ while running:
                     face_image.save(f"images/{time}_face.jpg")
 
                     print(f"Face saved as {time}_face.jpg!")
+                    faces_updater.main()  # Update faces.json file with new face image
 
 
             elif event.key == pygame.K_s and face_detected:  # Scan image when 'S' is pressed

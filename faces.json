@@ -1,5 +1,11 @@
 {
-    "images/test.jpg":{
-        "authorized":"Yes"        
+    "images/test.jpg": {
+        "authorized": "Yes"
+    },
+    "images/2024-11-27_10-44-56_978_face.jpg": {
+        "authorized": "Yes"
+    },
+    "images/2024-11-27_10-45-03_819_face.jpg": {
+        "authorized": "Yes"
     }
 }
