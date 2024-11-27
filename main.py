@@ -20,7 +20,7 @@ camera.start()
 
 # Initialize Mediapipe Face Detection
 mp_face_detection = mp.solutions.face_detection
-face_detection = mp_face_detection.FaceDetection(min_detection_confidence=1)
+face_detection = mp_face_detection.FaceDetection(min_detection_confidence=0.1)
 
 # Create Display Window
 screen = pygame.display.set_mode((640, 480))
@@ -67,7 +67,6 @@ def use_nn(image_input):
     if max_similarity >0.92:
         return(f'{max_similarity*100}%',found_img_path)
     else :
-        print(max_similarity)
         return ("match not found","unauthorized")
 
 
