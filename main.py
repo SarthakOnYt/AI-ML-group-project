@@ -33,6 +33,7 @@ def load_json():
         retrived_data=json.load(ri)
     return retrived_data
 
+
 global data
 data=load_json()
 
@@ -87,6 +88,9 @@ while running:
             running = False
         
         elif event.type == pygame.KEYDOWN:
+            faces_updater.main()
+            data=load_json()
+            
             if event.key == pygame.K_f and face_detected:  # Save image when 'F' is pressed
                 # Save each detected face region
                 for detection in results.detections:
@@ -105,7 +109,7 @@ while running:
                     face_image.save(f"images/{time}_face.jpg")
 
                     print(f"Face saved as {time}_face.jpg!")
-                    faces_updater.main()  # Update faces.json file with new face image
+                      # Update faces.json file with new face image
 
 
             elif event.key == pygame.K_s and face_detected:  # Scan image when 'S' is pressed
