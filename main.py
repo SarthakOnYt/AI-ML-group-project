@@ -37,6 +37,8 @@ def load_json():
 global data
 data=load_json()
 
+#Setup stuff till above this line------------------------
+
 def use_nn(image_input):
     #setup NN to compare faces
     transform = transforms.Compose([
@@ -69,10 +71,11 @@ def use_nn(image_input):
         return ("match not found","unauthorized")
 
 
-#Some terms that i used:
+#setup NN----------------------------
+
+#Some terms that are used:
 """
 1. ROI= Region of intrest, it is the region that we want to compare
-2. CNN= Convolutional Neural Network, it is a type of neural network that is designed to recognize patterns in images
 """
 
 
@@ -88,8 +91,8 @@ while running:
             running = False
         
         elif event.type == pygame.KEYDOWN:
-            faces_updater.main()
-            data=load_json()
+            faces_updater.main() # update faces.json
+            data=load_json() #load the new faces.json
             
             if event.key == pygame.K_f and face_detected:  # Save image when 'F' is pressed
                 # Save each detected face region
@@ -107,10 +110,6 @@ while running:
                     time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S_%f")[:-3]
                     face_image = Image.fromarray(face_roi)
                     face_image.save(f"images/{time}_face.jpg")
-
-                    print(f"Face saved as {time}_face.jpg!")
-                      # Update faces.json file with new face image
-
 
             elif event.key == pygame.K_s and face_detected:  # Scan image when 'S' is pressed
                 for detection in results.detections:

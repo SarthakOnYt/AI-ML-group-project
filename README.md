@@ -1,6 +1,6 @@
 # AI-ML-group-project
 
-Here the code for ourgrou project is uploaded
+Here the code for our group project is uploaded
 
 # Lead Developer:
 
@@ -8,7 +8,7 @@ Sarthak- 24BAI10269
 
 # Jr Developer:
 
-Snighda-
+Snighda- Registration no
 
 # PPT Makers:
 
