@@ -2,18 +2,9 @@
 
 Here the code for our group project is uploaded
 
-# Lead Developer:
+# Developers:
 
-Sarthak- 24BAI10269
-
-# Jr Developer:
-
-Snighda- Registration no
-
-# PPT Makers:
-
-Swapna-Registration no,
-Kirti-Registration no
+Sarthak
 
 # Modules used:
 
