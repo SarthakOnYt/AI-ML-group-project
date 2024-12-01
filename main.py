@@ -39,42 +39,10 @@ def load_json():
 global data
 data=load_json()
 
-
-class ImageRecognition(nn.Module):
-    def __init__(self, num_classes):
-        super(ImageRecognition, self).__init__()
-        self.conv1 = nn.Conv2d(1, 16, kernel_size=3, stride=1, padding=1)
-        self.conv2 = nn.Conv2d(16, 32, kernel_size=3, stride=1, padding=1)
-        self.conv3 = nn.Conv2d(32, 64, kernel_size=3, stride=1, padding=1)
-
-        # Correct flattened size after 3 layers of pooling
-        self.flattened_size = 2*2*50  # After 3 layers of pooling
-        self.fc1 = nn.Linear(self.flattened_size, 200)
-        self.fc2 = nn.Linear(200, 50)
-        self.fc3 = nn.Linear(50, num_classes)
-
-    def forward(self, x):
-        x = F.relu(self.conv1(x))
-        x = F.max_pool2d(x, 2)
-        x = F.relu(self.conv2(x))
-        x = F.max_pool2d(x, 2)
-        x = F.relu(self.conv3(x))
-        x = F.max_pool2d(x, 2)
-        x = x.view(x.size(0), -1)  # Flatten
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        x = self.fc3(x)
-        return x
-
-# Load the model
-model = ImageRecognition(num_classes=1)
-model.eval()
-print('Model loaded')
-
 #Setup stuff till above this line------------------------
 
 def use_nn(image_input):
-    #setup NN to compare faces
+    #setup NN to compare facesz
     transform = transforms.Compose([
         transforms.Grayscale(num_output_channels=1),
         transforms.Resize((200, 200)),
@@ -84,9 +52,7 @@ def use_nn(image_input):
     def load_image(image_path):
         image = Image.open(image_path)
         image_tensor = transform(image).unsqueeze(0)
-        with torch.no_grad():
-            features = model(image_tensor)
-        return features
+        return image_tensor
 
     input_tensor = transform(image_input).unsqueeze(0)
 
