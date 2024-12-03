@@ -24,7 +24,6 @@ face_detection = mp_face_detection.FaceDetection(min_detection_confidence=0.1)
 
 # Create Display Window
 screen = pygame.display.set_mode((640, 480))
-pygame.display.set_caption("Face Detection")
 
 #import faces data from faces.json
 
@@ -57,6 +56,7 @@ def use_nn(image_input):
     max_similarity = -float('inf')
     found_img_path=""
 
+    #data structure: {file location:{authorization:yes/no}}
     for entry in data:
         comparison_image = load_image(entry)
         similarity = torch.nn.functional.cosine_similarity(input_tensor.view(-1), comparison_image.view(-1), dim=0)
@@ -76,6 +76,7 @@ def use_nn(image_input):
 #Some terms that are used:
 """
 1. ROI= Region of intrest, it is the region that we want to compare
+2.RGB = Region Bunded
 """
 
 
