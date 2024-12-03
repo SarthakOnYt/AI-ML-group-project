@@ -4,9 +4,7 @@ import mediapipe as mp
 import pygame.camera
 import json
 import torch
-import torch.nn as nn
 from PIL import Image
-import torch.nn.functional as F
 from datetime import datetime
 from torchvision import transforms
 import faces_updater
