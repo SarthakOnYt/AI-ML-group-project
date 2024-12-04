@@ -38,7 +38,7 @@ data=load_json()
 
 #Setup stuff till above this line------------------------
 
-def use_nn(image_input):
+def recognize(image_input):
     #setup NN to compare facesz
     transform = transforms.Compose([
         transforms.Grayscale(num_output_channels=1),
@@ -130,7 +130,7 @@ while running:
                     image = Image.fromarray(face_roi)
 
                     # Perform neural network comparison
-                    nn_output = use_nn(image)
+                    nn_output = recognize(image)
 
                     if nn_output[0] == "match not found":
                         print("Person not found: Unauthorized access detected")
