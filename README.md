@@ -1,4 +1,4 @@
-# AI-ML-group-project
+# Face Detection and Recognition
 
 Here the code for our group project is uploaded
 
